@@ -44,9 +44,6 @@ public class TaskController {
         task.setTaskStatus(Status.OPEN);
         task.setAssignedDate(LocalDate.now());
         task.setId(UUID.randomUUID().getMostSignificantBits());
-
-        System.out.println("Auto generated ID : " + task.getId());
-
         taskService.save(task);
 
         return "redirect:/task/create";

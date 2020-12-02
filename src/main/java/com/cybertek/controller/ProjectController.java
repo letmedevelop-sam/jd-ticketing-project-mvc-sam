@@ -2,11 +2,14 @@ package com.cybertek.controller;
 
 import com.cybertek.converter.UserDtoConverter;
 import com.cybertek.dto.ProjectDTO;
+import com.cybertek.dto.TaskDTO;
 import com.cybertek.dto.UserDTO;
 import com.cybertek.enums.Status;
 import com.cybertek.service.ProjectService;
+import com.cybertek.service.TaskService;
 import com.cybertek.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,6 +29,8 @@ public class ProjectController {
     ProjectService projectService;
     @Autowired
     UserService userService;
+    @Autowired
+    TaskService taskService;
 
     @GetMapping("/create")
     public String createProject(Model model){
@@ -79,13 +85,37 @@ public class ProjectController {
 
         UserDTO manager = userService.findById("john@cybertek.com");
 
-        List<ProjectDTO> projects = projectService.findAll().stream().filter(project -> project.getAssignedManager().equals(manager)).collect(Collectors.toList());
+        List<ProjectDTO> projects = getCountedListOfProjectDTO(manager);
 
         model.addAttribute("projects",projects);
 
 
         return "/manager/project-status";
     }
+
+    List<ProjectDTO> getCountedListOfProjectDTO(UserDTO manager){
+
+        List<ProjectDTO> list = projectService
+                .findAll()
+                .stream()
+                .filter(x -> x.getAssignedManager().equals(manager))
+                .map(x -> {
+
+                    List<TaskDTO> taskList = taskService.findTaskByManager(manager);
+                    int completeCount = (int) taskList.stream().filter(t -> t.getProject().equals(x) && t.getTaskStatus() == Status.COMPLETE).count();
+                    int inCompleteCount = (int) taskList.stream().filter(t -> t.getProject().equals(x) && t.getTaskStatus() != Status.COMPLETE).count();
+
+                    x.setCompleteTaskCounts(completeCount);
+                    x.setUnfinishedTaskCounts(inCompleteCount);
+
+                    return x;
+
+                }).collect(Collectors.toList());
+
+        return list;
+
+    }
+
 
 
 
