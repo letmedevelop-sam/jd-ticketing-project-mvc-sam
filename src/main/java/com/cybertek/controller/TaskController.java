@@ -70,7 +70,7 @@ public class TaskController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateTask(@PathVariable("id") Long id,TaskDTO task,Model model){
+    public String updateTask(TaskDTO task){
 
         taskService.update(task);
 
