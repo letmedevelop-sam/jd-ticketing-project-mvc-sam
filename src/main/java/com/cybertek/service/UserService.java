@@ -11,7 +11,7 @@ public interface UserService extends CrudService<UserDTO,String> {
     //to update first we need to find one
     //give me all user list
     //delete records
-    // all business logic = C R U D etc
+    // SERVICE is all about business logic = C R U D etc
 
    /*  We will do them all by crud service. We just extend to CrudService
     UserDTO save(UserDTO);
