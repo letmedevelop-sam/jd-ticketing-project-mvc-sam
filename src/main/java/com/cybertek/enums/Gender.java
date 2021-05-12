@@ -2,7 +2,7 @@ package com.cybertek.enums;
 
 public enum Gender {
 
-    MALE("Male"),FEMALE("Female");
+    MALE("Male"),FEMALE("Female"); //This will let you see the value of gender in regular String format
 
     private final String value;
 

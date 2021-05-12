@@ -31,23 +31,24 @@
 
                                 <div class="panel-body">
 
-                                    <!-- ------------------------FORM START----------------------------- -->
-                                    <form class="needs-validation" novalidate th:action="@{/user/create}" method="post" th:object="${user}" >
+                                    <!-- ------------------------FORM START-----------------------------   th:action="@{/user/create}" method="post" th:object="${user}" -->
+
+                                    <form class="needs-validation" novalidate >
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
                                                     <label for="firstname" class="col-form-label">First Name</label>
-                                                    <input id="firstname" type="text" placeholder="first name" th:field="*{firstName}" class="form-control" required>
+                                                    <input id="firstname" type="text" placeholder="first name" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter first name.
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
                                                     <label for="lastname" class="col-form-label">Last Name</label>
-                                                    <input id="lastname" type="text" placeholder="last name" th:field="*{lastName}" class="form-control" required>
+                                                    <input id="lastname" type="text"  placeholder="last name" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter last name.
                                                     </div>
@@ -56,20 +57,20 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
-                                                    <label for="emailaddress" class="col-form-label">Email Address</label>
-                                                    <input id="emailaddress" type="text" placeholder="email address" th:field="*{userName}" class="form-control" required>
+                                                    <label for="email" class="col-form-label">Email Address</label>
+                                                    <input id="email" type="text"  placeholder="email address" class="form-control" required>
                                                     <div class="invalid-feedback">
-                                                        Please enter email.
+                                                        Please enter email address.
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
-                                                    <label for="phonenumber" class="col-form-label">Phone Number</label>
-                                                    <input id="phonenumber" type="tel" placeholder="phone number" th:field="*{phone}" class="form-control"  pattern="^\d{10}$" required>
+                                                    <label for="phone" class="col-form-label">Phone Number</label>
+                                                    <input id="phone" type="tel"  placeholder="phone number" class="form-control" pattern="^\d{10}$" required>
                                                     <div class="invalid-feedback">
                                                         Please enter 10 digit mobile number.
                                                     </div>
@@ -78,54 +79,58 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
                                                     <label for="password" class="col-form-label">Password</label>
-                                                    <input id="password" type="password" placeholder="password" th:field="*{passWord}" class="form-control"
-                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
+                                                    <input id="password" type="text" placeholder="enter your password" class="form-control" pattern="(?=.*\d)(?=.*\[a-z])(?=.*\[A-Z]).{4}" required>
                                                     <div class="invalid-feedback">
-                                                        Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters"
+                                                        Password must contain at least one number, uppercase letter, lowercase letter and at least 4 or more characters.
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
-                                                    <label for="repassword" class="col-form-label">Password</label>
-                                                    <input id="repassword" type="password" placeholder="confirm your password" th:field="*{passWord}" class="form-control"
-                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
+                                                    <label for="password2" class="col-form-label">Validate Password</label>
+                                                    <input id="password2" type="text" placeholder="enter your password again"class="form-control" pattern="(?=.*\d)(?=.*\[a-z])(?=.*\[A-Z]).{4}" required>
                                                     <div class="invalid-feedback">
-                                                        Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters"
+                                                        Password must contain at least one number, uppercase letter, lowercase letter and at least 4 or more characters.
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
                                                     <label>Gender</label><br>
+
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" name="radio-inline" checked="" th:field="*{gender}" th:value="MALE" class="custom-control-input"><span class="custom-control-label">Male</span>
+                                                        <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">Male</span>
                                                     </label>
+
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" name="radio-inline" th:field="*{gender}" th:value="FEMALE" class="custom-control-input"><span class="custom-control-label">Female</span>
+                                                        <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">Female</span>
                                                     </label>
 
                                                 </div>
+
                                             </div>
 
-                                            <div class="col-sm-6 col-md-6">
+                                            <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
-                                                    <label>Choose a Role</label>
-                                                    <select th:field="*{role}" class="custom-select" required="required">
-                                                        <option th:value=" ''" th:text="Select"></option>
-                                                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
-                                                   </select>
+                                                    <label>Choose a Role : </label> <br>
+                                                    <select name="roleid" id="roleid" class="custom-select" required="required">
+
+                                                        <option value="select">Select</option>
+                                                        <option value="admin">Admin</option>
+                                                        <option value="manager">Manager</option>
+                                                        <option value="employee">Employee</option>
+                                                    </select>
+
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6 col-lg-12">
                                                 <div class="float-right">
@@ -151,56 +156,85 @@
 
                 <!-- ------------------------TABLE START----------------------------- -->
 
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="col-md-12">
-                            <section class="panel">
-                                <header class="panel-heading">
-                                    <h2 class="panel-title">User List</h2>
-                                </header>
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Email(username)</th>
-                                                <th scope="col">Gender</th>
-                                                <th scope="col">Phone</th>
-                                                <th scope="col">Role</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                            </thead>
-
-                                            <tbody>
-
-                                            <tr th:each="user : ${users}">
-                                                <td th:text="${user.firstName + ' ' + user.lastName}"></td>
-                                                <td th:text="${user.userName}"></td>
-                                                <td th:text="${user.gender.value}"></td>
-                                                <td th:text="${user.phone}"></td>
-                                                <td th:text="${user.role.description}"></td>
-                                                <td class="actions">
-                                                    <a th:href="@{/user/update/{id}(id=${user.userName})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>
-                                                    <a th:href="@{/user/delete/{id}(id=${user.userName})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>
-                                                </td>
-                                            </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </section>
+                <div class="col-sm-12 col-md-12 ">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header" id="top">
+                                <h2 class="pageheader-title"> User List</h2>
+                            </div>
                         </div>
+
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+
+
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email(username)</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Sam</td>
+                                        <td>sam@cyber</td>
+                                        <td>male</td>
+                                        <td>54544758956</td>
+                                        <td>Manager</td>
+                                        <td class="actions">
+                                            <a href=""><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
+                                            <a href="" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jeam</td>
+                                        <td>gersam@cyber</td>
+                                        <td>female</td>
+                                        <td>53244758956</td>
+                                        <td>Dealer</td>
+                                        <td class="actions">
+                                            <a href=""><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
+                                            <a href="" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>ErSam</td>
+                                        <td>ersam@cyber</td>
+                                        <td>male</td>
+                                        <td>53544758956</td>
+                                        <td>Employee</td>
+                                        <td class="actions">
+                                            <a href=""><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
+                                            <a href="" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div>
+
                     </div>
                 </div>
+            </div>
 
                 <!-- ------------------------TABLE END----------------------------- -->
 
             </div>
-
         </div>
-
     </div>
 
     <div th:replace="/fragments/footer :: footer"></div>
