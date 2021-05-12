@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
 
 public class BaseEntity {
 
-
+//Some data we want to keep in DB but no need to see on UI
+// Persist
     private Long id;
     private LocalDateTime insertDateTime;
     private Long insertUserId;

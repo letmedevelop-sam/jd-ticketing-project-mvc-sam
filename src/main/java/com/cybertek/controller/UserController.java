@@ -22,9 +22,9 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/create")
-    public String createUser(Model model){
+    public String createUser(Model model){ //to be able to save when we enter a data: We need tot send an empty object
 
-        model.addAttribute("user",new UserDTO());
+        model.addAttribute("user",new UserDTO());  //We used DTO because
         model.addAttribute("roles",roleService.findAll());
         model.addAttribute("users",userService.findAll());
 

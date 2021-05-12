@@ -10,14 +10,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+
 public class UserDTO {
 
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private String passWord;
-    private boolean enabled;
-    private String phone;
-    private RoleDTO role;
-    private Gender gender;
+    private String  firstName;
+    private String  lastName;
+    private String  userName;
+    private String  passWord;
+    private boolean  enabled;
+    private String  phone;
+    private RoleDTO  role;   //create Role DTO
+    private Gender  gender;  // import
 }
