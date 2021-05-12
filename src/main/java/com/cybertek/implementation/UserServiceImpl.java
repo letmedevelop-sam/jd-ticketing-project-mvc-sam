@@ -7,12 +7,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
-public class UserServiceImpl extends AbstractMapService<UserDTO,String> implements UserService {
+@Service  //we need to create a bean  to be able to us in DataGenerator.
+public class UserServiceImpl extends AbstractMapService<UserDTO,String> implements UserService { //change the Generics to UserDTO
 
+    //call methods from parent  Interface  and implement them
     @Override
     public List<UserDTO> findAll() {
-        return super.findAll();
+
+        return super.findAll(); // return null ?
     }
 
     @Override
@@ -34,7 +36,7 @@ public class UserServiceImpl extends AbstractMapService<UserDTO,String> implemen
     @Override
     public void delete(UserDTO object) {
         super.delete(object);
-    }
+    }//change the Generics to UserDTO
 
     @Override
     public UserDTO findById(String id) {

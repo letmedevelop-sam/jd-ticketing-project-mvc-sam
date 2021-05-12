@@ -17,10 +17,10 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
-@Component
-public class DataGenerator implements CommandLineRunner {
+@Component  //Springboot will create an object and whatever we create/@aAutowire it wil inject in it
+public class DataGenerator implements CommandLineRunner { //will bring run method
 
-    RoleService roleService;
+    RoleService roleService;  // we will not use new keyword (Loosely) Coupled  //Always inject through interface
     UserService userService;
     ProjectService projectService;
     TaskService taskService;
@@ -32,6 +32,7 @@ public class DataGenerator implements CommandLineRunner {
         this.taskService = taskService;
     }
 
+    //we need to use @Service annotation in USerServiceImpl and RoleServiceImpl classes to create bean
     @Override
     public void run(String... args) throws Exception {
 
@@ -44,8 +45,8 @@ public class DataGenerator implements CommandLineRunner {
         roleService.save(employeeRole);
 
 
-        UserDTO user1 = new UserDTO("John", "Kesy",
-                "john@cybertek.com", "Abc1", true, "7459684532", managerRole, Gender.MALE);
+        UserDTO user1 = new UserDTO("Sam", "Kar",
+                "samkar@cybertek.com", "Abc1", true, "7459684532", managerRole, Gender.MALE);
         UserDTO user5 = new UserDTO("Mike", "Smith",
                 "mike@cybertek.com", "Abc2", true, "7459684532", adminRole, Gender.MALE);
         UserDTO user2 = new UserDTO("Delisa",
