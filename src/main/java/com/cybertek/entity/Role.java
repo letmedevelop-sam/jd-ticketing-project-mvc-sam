@@ -9,7 +9,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+
 public class Role {
+
 
     private Long id;
     private String description;

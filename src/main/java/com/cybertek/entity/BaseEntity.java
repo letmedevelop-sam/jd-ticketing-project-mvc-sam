@@ -6,11 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDateTime;
 
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+
 public class BaseEntity {
+
 
     private Long id;
     private LocalDateTime insertDateTime;
