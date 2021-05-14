@@ -37,8 +37,8 @@ public class UserController {
         return "redirect:/user/create"; //we will again see the same page but with a new line added to our list and default place holders in all input boxes
     }
 
-    @GetMapping("/update/{username}")  //use get mapping because we will add some data // we will use username apth variable
-    public String editUser(@PathVariable("username") String username,Model model){
+    @GetMapping("/update/{username}")  //use get mapping because we will add some data // we will use username path variable
+    public String editUser(@PathVariable("username") String username, Model model){
 
         model.addAttribute("user",userService.findById(username));
         model.addAttribute("users",userService.findAll());
