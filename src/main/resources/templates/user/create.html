@@ -106,11 +106,11 @@
                                                     <label>Gender</label><br>
 
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" name="radio-inline" checked="" th:field="*{gender}" th:value="Male"  class="custom-control-input"><span class="custom-control-label">Male</span>
+                                                        <input type="radio" name="radio-inline" checked="" th:field="*{gender}" th:value="MALE"  class="custom-control-input"><span class="custom-control-label">Male</span>
                                                     </label>
 
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" name="radio-inline" checked="" th:field="*{gender}" th:value="Female" class="custom-control-input"><span class="custom-control-label">Female</span>
+                                                        <input type="radio" name="radio-inline"  th:field="*{gender}" th:value="FEMALE" class="custom-control-input"><span class="custom-control-label">Female</span>
                                                     </label>
 
                                                 </div>
@@ -120,9 +120,10 @@
                                             <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
                                                     <label>Choose a Role : </label> <br>
-                                                    <select name="roleid" id="roleid" th:field="*{role}" class="custom-select" required="required">
+                                                    <select  th:field="*{role}" class="custom-select" required="required">
                                                         <option th:value=" ' '" th:text="Select"></option>
-                                                        <option th:each="role : ${roles}"></option>
+                                                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option> <!-- th:value is important. it will give ERROR unles you add it-->
+
                                                     <!--
                                                     <select name="roleid" id="roleid" class="custom-select" required="required">
 
@@ -130,9 +131,10 @@
                                                         <option value="admin">Admin</option>
                                                         <option value="manager">Manager</option>
                                                         <option value="employee">Employee</option>
+                                                     -->
                                                     </select>
 
-                                                    -->
+
 
                                                 </div>
                                             </div>
@@ -188,42 +190,21 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    <tr th:each="user : ${users}">
                                         <th scope="row">1</th>
-                                        <td>Sam</td>
-                                        <td>sam@cyber</td>
-                                        <td>male</td>
-                                        <td>54544758956</td>
-                                        <td>Manager</td>
+                                        <td th:text="${user.firstName + ' ' + user.lastName}" ></td>
+                                        <td th:text="${user.userName}"></td>
+                                        <td th:text="${user.gender.value}"></td>
+                                        <td th:text="${user.phone}"></td>
+                                        <td th:text="${user.role.description}"></tdth>
                                         <td class="actions">
                                             <a href=""><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
                                             <a href="" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jeam</td>
-                                        <td>gersam@cyber</td>
-                                        <td>female</td>
-                                        <td>53244758956</td>
-                                        <td>Dealer</td>
-                                        <td class="actions">
-                                            <a href=""><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
-                                            <a href="" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>ErSam</td>
-                                        <td>ersam@cyber</td>
-                                        <td>male</td>
-                                        <td>53544758956</td>
-                                        <td>Employee</td>
-                                        <td class="actions">
-                                            <a href=""><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
-                                            <a href="" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
-                                        </td>
-                                    </tr>
+
+
+
                                     </tbody>
                                 </table>
                             </div>

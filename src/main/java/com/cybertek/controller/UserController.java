@@ -17,27 +17,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     @Autowired
-    RoleService roleService;
+    RoleService roleService;   // DI by Field Injection to create a role  list to use in the dropdown
     @Autowired
-    UserService userService;
+    UserService userService; // DI by Field Injection to create a users list to use in the table to print them in th:each
 
     @GetMapping("/create")
     public String createUser(Model model){ //to be able to save when we enter a data: We need tot send an empty object
 
         model.addAttribute("user",new UserDTO());  //We used DTO because
-        model.addAttribute("roles",roleService.findAll());
-        model.addAttribute("users",userService.findAll());
+        model.addAttribute("roles",roleService.findAll()); //we used roles in dropdown // we need dependency injection FIELD INJECTION
+        model.addAttribute("users",userService.findAll()); // we used users in table to print all users // we need DI by Field Injection
 
         return "/user/create";
     }
 
     @PostMapping("/create")
-    public String insertUser(UserDTO user,Model model){
+    public String insertUser(UserDTO user,Model model){  //this will activate SAVE button //We used UserDTO because after SAVE we want to see default placeholders//We need Model because we want to create new object
         userService.save(user);
-        return "redirect:/user/create";
+        return "redirect:/user/create"; //we will again see the same page but with a new line added to our list and default place holders in all input boxes
     }
 
-    @GetMapping("/update/{username}")
+    @GetMapping("/update/{username}")  //use get mapping because we will add some data // we will use username apth variable
     public String editUser(@PathVariable("username") String username,Model model){
 
         model.addAttribute("user",userService.findById(username));
