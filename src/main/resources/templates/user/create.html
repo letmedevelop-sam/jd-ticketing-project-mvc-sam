@@ -196,7 +196,7 @@
                                         <td th:text="${user.role.description}"></tdth>
                                         <td class="actions">
                                             <a th:href="@{/user/update/{id}(id=${user.userName})}"><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
-                                            <a href="" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
+                                            <a th:href="@{/user/delete/{id}(id=${user.userName})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
                                         </td>
                                     </tr>
 

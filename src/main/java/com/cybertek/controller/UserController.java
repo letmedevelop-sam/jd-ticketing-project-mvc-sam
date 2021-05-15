@@ -35,6 +35,7 @@ public class UserController {
     public String insertUser(UserDTO user,Model model){  //this will activate SAVE button //We used UserDTO because after SAVE we want to see default placeholders//We need Model because we want to create new object
         userService.save(user);
         return "redirect:/user/create"; //we will again see the same page but with a new line added to our list and default place holders in all input boxes
+        //instead of going to create.htlm how about if we call the createuser method?
     }
 
     @GetMapping("/update/{username}")  //use get mapping because we will add some data // we will use username path variable
