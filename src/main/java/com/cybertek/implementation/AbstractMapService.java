@@ -35,8 +35,10 @@ public abstract class AbstractMapService<T,ID> { //We use MAP logic key and valu
     }
 
     void update(ID id,T object){
-
+        //before update, go to related object
+        //delete the related object
         map.entrySet().removeIf(entry -> entry.getValue().equals(object));
+        //add teh new updated object
         map.put(id,object);
     }
 

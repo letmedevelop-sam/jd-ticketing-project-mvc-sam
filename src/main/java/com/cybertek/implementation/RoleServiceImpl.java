@@ -25,6 +25,8 @@ public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements
     public void update(RoleDTO object) {
         super.update(object.getId(),object);
     }//change the Generics to RoleDTO
+    //after making changes in AbstractMapService update accordingly with super
+
 
     @Override
     public void deleteById(Long id) {

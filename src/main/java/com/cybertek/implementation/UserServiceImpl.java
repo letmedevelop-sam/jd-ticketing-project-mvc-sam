@@ -25,7 +25,7 @@ public class UserServiceImpl extends AbstractMapService<UserDTO,String> implemen
     @Override
     public void update(UserDTO object) {
 
-        super.update(object.getUserName(),object);
+        super.update(object.getUserName(),object); //after making changes in AbstractMapService update accordingly with super
     }
 
     @Override
