@@ -77,14 +77,14 @@
                                 <div class="col-sm-3 col-md-3 ">
                                     <div class="form-group">
                                         <label>Project Start Date <small class="text-muted"></small></label>
-                                        <input type="date" th:field="*{startDate}"  class="form-control date-inputmask" id="startdate" placeholder="dd/mm/yyyy">
+                                        <input type="date" th:field="*{startDate}"  class="form-control date-inputmask" id="startdate" placeholder="dd-MM-yyyy">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-3 col-md-3 ">
                                     <div class="form-group">
                                         <label>Project End Date <small class="text-muted"></small></label>
-                                        <input type="date" th:field="*{endDate}"  class="form-control date-inputmask" id="enddate" placeholder="dd/mm/yyyy">
+                                        <input type="date" th:field="*{endDate}"  class="form-control date-inputmask" id="enddate" placeholder="dd-MM-yyyy">
                                     </div>
                                 </div>
 
@@ -132,7 +132,7 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                           <!--  <th scope="col">#</th> -->
+                                            <!-- <th scope="col">#</th>  -->
                                             <th scope="col">Project Code</th>
                                             <th scope="col">Project Name</th>
                                             <th scope="col">Start / End Date</th>
@@ -143,19 +143,20 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <!-- <th scope="row">1</th> -->
+
                                         <tr th:each="project : ${projects}">
+                                            <!-- <td th:value="${projects.indexOf(project)}" ></td> -->
                                             <td th:text="${project.projectCode}"></td>
                                             <td th:text="${project.projectName}"></td>
-                                            <td th:text="${#temporals.format(project.startDate,'dd.MM.yyyy') + ' - ' + #temporals.format(project.endDate,'dd.MM.yyyy')}"></td>
+                                            <td th:text="${#temporals.format(project.startDate,'MM.dd.yyyy') + ' - ' + #temporals.format(project.endDate,'MM.dd.yyyy')}"></td>
                                             <!-- to change the date format in our Project List table, we need to add --${#temporals.format(project.startDate,'MM.dd.yyyy')-- -->
 
                                             <td th:text="${project.assignedManager.firstName + ' ' + project.assignedManager.lastName}"></td>
                                             <td th:text="${project.projectStatus}"></td>
                                             <td class="actions">
-                                                <a href=""><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
-                                                <a href="" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
-                                                <a href="" class="complete-row"><button type="button" class="btn btn-dark btn-sm">Complete</button> </a>
+                                                <a th:href="@{/project/update/{id}(id=${project.getProjectCode()})}" class="btn btn-primary btn-sm">Update</button></i></a>
+                                                <a th:href="@{/project/delete/{id}(id=${project.getProjectCode()})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
+                                                <a th:href="@{/project/complete/{id}(id=${project.getProjectCode()})}"class="complete-row"><button type="button" class="btn btn-dark btn-sm">Complete</button> </a>
                                             </td>
                                         </tr>
 

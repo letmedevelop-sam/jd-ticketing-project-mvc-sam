@@ -72,8 +72,8 @@ public class DataGenerator implements CommandLineRunner { //will bring run metho
 
         ProjectDTO project1 = new ProjectDTO("Spring MVC","PR001",user1, LocalDate.now(),LocalDate.now().plusDays(25),"Creating Controllers", Status.OPEN);
         ProjectDTO project2 = new ProjectDTO("Spring ORM","PR002",user2, LocalDate.now(),LocalDate.now().plusDays(10),"Creating Database", Status.IN_PROGRESS);
-        ProjectDTO project3 = new ProjectDTO("Spring Container","PR003",user1, LocalDate.now(),LocalDate.now().plusDays(32),"Creating Container", Status.UAT_TEST);
-        ProjectDTO project4 = new ProjectDTO("Spring Container2","PR004",user1, LocalDate.now(),LocalDate.now().plusDays(35),"Creating Container", Status.IN_PROGRESS);
+        ProjectDTO project3 = new ProjectDTO("Spring Container","PR003",user3, LocalDate.now(),LocalDate.now().plusDays(32),"Creating Container", Status.UAT_TEST);
+        ProjectDTO project4 = new ProjectDTO("Spring Container2","PR004",user4, LocalDate.now(),LocalDate.now().plusDays(35),"Creating Container", Status.IN_PROGRESS);
 
         projectService.save(project1);
         projectService.save(project2);
@@ -81,7 +81,7 @@ public class DataGenerator implements CommandLineRunner { //will bring run metho
         projectService.save(project4);
 
         TaskDTO task1 = new TaskDTO(project1,user8,"Controller","Request Mapping",Status.IN_PROGRESS,LocalDate.now().minusDays(4));
-        TaskDTO task2 = new TaskDTO(project3,user3,"Configuration","Database Connnection",Status.COMPLETE,LocalDate.now().minusDays(12));
+        TaskDTO task2 = new TaskDTO(project3,user3,"Configuration","Database Connection",Status.COMPLETE,LocalDate.now().minusDays(12));
         TaskDTO task3 = new TaskDTO(project3,user6,"Mapping","One-To-Many",Status.IN_PROGRESS,LocalDate.now().minusDays(8));
         TaskDTO task4 = new TaskDTO(project2,user7,"Dependency Injection","Autowired",Status.UAT_TEST,LocalDate.now().minusDays(20));
         taskService.save(task1);

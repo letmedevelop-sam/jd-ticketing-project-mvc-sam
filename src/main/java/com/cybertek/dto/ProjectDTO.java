@@ -20,10 +20,10 @@ public class ProjectDTO {
     private UserDTO assignedManager; //Type is UserDTO
 
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // FORMAT MUST MATCH
     private LocalDate startDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")    //Thi annotation will
+    @DateTimeFormat(pattern = "yyyy-MM-dd")    //This annotation will
     private LocalDate endDate;          //In table date is in OBJECT format. When we call it to Project Create we need String
 
     private String projectDetail;
