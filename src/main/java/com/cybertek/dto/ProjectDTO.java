@@ -23,8 +23,8 @@ public class ProjectDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate endDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")    //Thi annotation will
+    private LocalDate endDate;          //In table date is in OBJECT format. When we call it to Project Create we need String
 
     private String projectDetail;
     private Status projectStatus;
