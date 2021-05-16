@@ -82,7 +82,7 @@
                                             <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
                                                     <label for="password" class="col-form-label">Password</label>
-                                                    <input id="password" type="text" placeholder="enter your password" th:field="*{passWord}" class="form-control" pattern="(?=.*\d)(?=.*\[a-z])(?=.*\[A-Z]).{4}" required>
+                                                    <input id="password" type="password" placeholder="enter your password" th:field="*{passWord}" class="form-control" pattern="(?=.*\d)(?=.*\[a-z])(?=.*\[A-Z]).{4}" required>
                                                     <div class="invalid-feedback">
                                                         Password must contain at least one number, uppercase letter, lowercase letter and at least 4 or more characters.
                                                     </div>
@@ -92,7 +92,7 @@
                                             <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
                                                     <label for="password2" class="col-form-label">Validate Password</label>
-                                                    <input id="password2" type="text" placeholder="enter your password again" th:field="*{passWord}"  class="form-control" pattern="(?=.*\d)(?=.*\[a-z])(?=.*\[A-Z]).{4}" required>
+                                                    <input id="password2" type="password" placeholder="enter your password again" th:field="*{passWord}"  class="form-control" pattern="(?=.*\d)(?=.*\[a-z])(?=.*\[A-Z]).{4}" required>
                                                     <div class="invalid-feedback">
                                                         Password must contain at least one number, uppercase letter, lowercase letter and at least 4 or more characters.
                                                     </div>
@@ -177,7 +177,7 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+
                                         <th scope="col">Name</th>
                                         <th scope="col">Email(username)</th>
                                         <th scope="col">Gender</th>
@@ -188,12 +188,12 @@
                                     </thead>
                                     <tbody>
                                     <tr th:each="user : ${users}">
-                                        <th scope="row">1</th>
+
                                         <td th:text="${user.firstName + ' ' + user.lastName}" ></td>
                                         <td th:text="${user.userName}"></td>
                                         <td th:text="${user.gender.value}"></td>
                                         <td th:text="${user.phone}"></td>
-                                        <td th:text="${user.role.description}"></tdth>
+                                        <td th:text="${user.role.description}"></td>
                                         <td class="actions">
                                             <a th:href="@{/user/update/{id}(id=${user.userName})}"><button type="button" class="btn btn-primary btn-sm">Update</button></i></a>
                                             <a th:href="@{/user/delete/{id}(id=${user.userName})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button> </a>
