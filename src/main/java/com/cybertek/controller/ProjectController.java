@@ -45,7 +45,7 @@ public class ProjectController {
     @PostMapping("/create")
     public String insertProject(ProjectDTO project){
         projectService.save(project);
-        project.setProjectStatus(Status.OPEN);   // There is no field to set Project Status. When we start project it will automatically be OPEN
+        project.setProjectStatus(Status.OPEN);   // There is no field to set Project Status in our Form. When we start project it will automatically be OPEN
         return "redirect:/project/create";
 
     }
