@@ -19,7 +19,6 @@ public class ProjectDTO {
     private String projectCode;
     private UserDTO assignedManager; //Type is UserDTO
 
-
     @DateTimeFormat(pattern = "yyyy-MM-dd") // FORMAT MUST MATCH
     private LocalDate startDate;
 
@@ -32,7 +31,9 @@ public class ProjectDTO {
     private int completeTaskCounts;
     private int unfinishedTaskCounts;
 
-    public ProjectDTO(String projectName, String projectCode, UserDTO assignedManager, LocalDate startDate, LocalDate endDate, String projectDetail, Status projectStatus) {
+    public ProjectDTO(String projectName, String projectCode, UserDTO assignedManager,
+                      LocalDate startDate, LocalDate endDate,
+                      String projectDetail, Status projectStatus) {
         this.projectName = projectName;
         this.projectCode = projectCode;
         this.assignedManager = assignedManager;

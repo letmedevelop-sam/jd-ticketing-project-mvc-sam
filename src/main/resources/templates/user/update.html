@@ -119,9 +119,8 @@
                                             <div class="col-sm-6 col-md-6 ">
                                                 <div class="form-group">
                                                     <label>Choose a Role : </label> <br>
-                                                    <select  name="role" class="custom-select" required="required">
-                                                        <!--selected and th:field is not working together : : :  th:field="*{role} ==> name="role"  you should use name or id-->
-                                                        <option th:value=" ' '" th:text="Select"></option>
+                                                    <select  th:field="*{role}" class="custom-select" required="required">
+                                                        <!-- we dont want to see Select while we update our form-->
                                                         <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"
                                                         th:selected="${role.id} == ${user.role.id}"></option> <!-- th:value is important. it will give ERROR unless you add it-->
                                                     </select>
