@@ -83,10 +83,10 @@ public class ProjectController {
     @GetMapping("/manager/complete")
     public String getProjectByManager(Model model){
 
-        UserDTO manager = userService.findById("john@cybertek.com");
+        UserDTO manager = userService.findById("samkar@cybertek.com");
 
         List<ProjectDTO> projects = getCountedListOfProjectDTO(manager);
-
+        //    List<ProjectDTO> projects = projectService.findAll().stream().filter(project -> project.getAssignedManager().equals(manager)).collect(Collectors.toList());
         model.addAttribute("projects",projects);
 
 
